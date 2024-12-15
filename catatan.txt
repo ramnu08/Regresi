@@ -1,0 +1,40 @@
+#Square_Footage, Num_Bedrooms, Num_Bathrooms, Year_Built, Lot_Size, Garage_Size, Neighborhood_Quality, House_Price
+databr=np.array([[821, 1, 1, 2001, 3.51066688, 0, 7],
+                [3702, 2, 2, 1984, 1.78029125, 2, 6],
+                [2102, 2, 1, 1984, 2.74521093, 1, 7],
+                [966, 1, 2, 1977, 2.730666876, 1, 8],
+                [3172, 2, 2, 2007, 3.297032121, 2, 7],
+                [1937, 2, 1, 1999, 2.278109271, 1, 4],
+                [2824, 3, 1, 2002, 3.182653980, 2, 6],
+                [591, 1, 1, 1989, 1.982563081, 0, 3],
+                [3520, 3, 2, 2010, 3.109826641, 2, 8],
+                [4381, 5, 2, 2017, 3.967281023, 3, 9]])
+
+
+#fixed acidity,volatile acidity,citric acid,residual sugar,chlorides,free sulfur dioxide,total sulfur dioxide,density,pH,sulphates,alcohol,quality
+databr=np.array([[6.8, 0.67 ,0.02 ,1.8 ,0.05 ,5 ,11 ,0.9962 ,3.48 ,0.52 ,9.5],
+                [4.2, 0.41, 0.008, 1.2, 0.007, 4, 8, 0.6271, 2.81, 0.27, 7.3],
+                [5.8, 0.59, 0.052, 2.1, 0.028, 6, 24, 1.3831, 3.19, 0.49, 8.2],
+                [7.2, 3.81, 0.32, 4.1, 0.291, 9, 49, 3.9831, 4.21, 2.81, 12.8],
+                [2.9, 1.61, 0.827, 2.8, 0.193, 7, 49, 2.9837, 2.49, 1.92, 4.7],
+                [8.4, 5.81, 0.5, 5.2, 0.381, 14, 67, 4.7317, 5.19, 3.61, 6.1],
+                [6.3, 4.92, 0.87, 6.1, 0.951, 5, 49, 5.9825, 7.56, 5.97, 7.2],
+                [5.3, 7.29, 0.73, 5.8, 0.781, 7, 53, 4.7293, 5.89, 3.37, 6.7],
+                [9.1, 14.7, 1.28, 7.92, 0.973, 9, 72, 4.0927, 8.39, 5.89, 9.7],
+                [2.9, 5.2, 0.83, 5.82, 0.682, 5, 69, 3.8952, 4.42, 3.95, 7.3]])
+
+
+Simpan Data 
+# Nama kolom yang Anda inginkan
+#fixed acidity,volatile acidity,citric acid,residual sugar,chlorides,free sulfur dioxide,total sulfur dioxide,density,pH,sulphates,alcohol,quality
+columns = ['Square_Footage', 'Num_Bedrooms', 'Num_Bathrooms', 'Year_Built', 
+           'Lot_Size', 'Garage_Size', 'Neighborhood_Quality']
+
+# Simpan databr ke dalam file CSV
+databr_df = pd.DataFrame(databr, columns=columns)
+databr_df['Prediksi'] = y_pred  # Menambahkan hasil prediksi sebagai kolom baru
+
+# Simpan ke file CSV
+databr_df.to_csv('databr_predictions.csv', index=False)
+
+print("Data berhasil disimpan ke dalam 'databr_with_predictions.csv'.")
